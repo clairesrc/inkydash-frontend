@@ -1,4 +1,4 @@
-FROM woahbase/alpine-rpigpio
+FROM woahbase/alpine-rpigpio:aarch64
 
 ENV TZ "America/Chicago"
 ENV INKYDASH_SERVER_LOCATION "localhost:8080"
