@@ -24,6 +24,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          platforms: linux/arm64
+          platforms: linux/arm64,linux/armhf
           push: true
-          tags: clairesrc/inkydash:latest
+          tags: clairesrc/inkydash-frontend:latest
