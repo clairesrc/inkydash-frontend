@@ -4,3 +4,4 @@ python-dotenv
 pytest-dotenv
 pytest
 python-dateutil
+requests
