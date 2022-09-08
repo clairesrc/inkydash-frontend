@@ -3,7 +3,7 @@ FROM woahbase/alpine-rpigpio:aarch64
 ENV TZ "America/Chicago"
 ENV INKYDASH_SERVER_LOCATION "localhost:8080"
 
-RUN apk add libjpeg-turbo-dev zlib-dev python3-dev build-base
+RUN apk add libjpeg-turbo-dev zlib-dev python3-dev build-base linux-headers
 RUN pip install --upgrade pip
 
 RUN mkdir /inkydash
