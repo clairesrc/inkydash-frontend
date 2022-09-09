@@ -1,5 +1,4 @@
 inky
-RPi.GPIO
 Pillow
 python-dotenv
 requests
