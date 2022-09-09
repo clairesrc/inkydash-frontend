@@ -1,7 +1,5 @@
 inky
+RPi.GPIO
 Pillow
 python-dotenv
-pytest-dotenv
-pytest
-python-dateutil
 requests
