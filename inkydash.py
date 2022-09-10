@@ -32,7 +32,7 @@ def draw_image(state):
     # create an image
     out = Image.new("RGB", (SCREEN_WIDTH, SCREEN_HEIGHT), (0, 0, 0))
 
-    # font
+    # widget styling
     font_big = ImageFont.truetype(FONT_FILENAME, 90)
     height_big = 130
     font_medium = ImageFont.truetype(FONT_FILENAME, 48)
