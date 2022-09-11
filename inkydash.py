@@ -3,7 +3,6 @@ import os
 from inky import auto
 from PIL import Image
 
-IMAGE_FILENAME = "/tmp/inkydash.png"
 SCREEN_WIDTH = 600
 SCREEN_HEIGHT = 488
 FONT_FILENAME = "Pillow/Tests/fonts/NotoSansMono-Regular.ttf"
@@ -18,7 +17,7 @@ def send_to_screen():
     saturation = 0.5
 
     # open source image
-    image = Image.open(IMAGE_FILENAME)
+    image = Image.open(os.getcwd() + "/screenshot.png")
     resizedimage = image.resize(inky.resolution)
 
     # draw image
