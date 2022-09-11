@@ -13,7 +13,7 @@ RUN set -xe \
 RUN mkdir /inkydash
 WORKDIR /inkydash
 
-ADD requirements.txt .
+ADD requirements-test.txt .
 
 RUN pip install -r requirements-test.txt
 

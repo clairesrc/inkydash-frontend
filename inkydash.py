@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 import os
+from inky import auto
+from PIL import Image
 
 IMAGE_FILENAME = "/tmp/inkydash.png"
 SCREEN_WIDTH = 600
@@ -32,7 +34,7 @@ def draw_image():
 
 def main():
     draw_image()
-    # send_to_screen()
+    send_to_screen()
 
 
 if __name__ == "__main__":
