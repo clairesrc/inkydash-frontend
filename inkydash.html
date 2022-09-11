@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<body>
+<div id="wrap">
+</div>
+</body>
+
+<style>
+body {
+    background: #000;
+    font-family: Noto Sans;
+    color: #fff;
+    margin: 0;
+    font-size: 16px;
+}
+#wrap {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+.widget {
+    width: 100vh;
+    border-top: 1px solid #999;
+}
+.widget:first {
+    border-top: none;
+}
+.widget-size-small .data {
+    font-size: 24px;
+    line-height: 16px;
+}
+.widget-size-medium .data {
+    font-size: 48px;
+    line-height: 48px;
+}
+.widget-size-large .data {
+    font-size: 90px;
+    line-height: 72px;
+}
+
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/dom-to-image@2.6.0/dist/dom-to-image.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+<script>
+    API_URL = "http://inkydash:8080"
+
+    buildWidget = ({data, label, name, size}) => `
+    <div class="widget widget-size-${size} widget-name-${name}">
+        <div class="label">
+            ${label}
+        </div>
+        <div class="data">
+            <span>
+                ${data}
+            </span>
+        </div>
+    </div>
+    `
+    wrap = document.getElementById("wrap")
+    fetch(`${API_URL}/data`)
+    .then(response => response.json())
+    .then(data => {
+        data.map((widget) => {
+            wrap.append(new DOMParser().parseFromString(buildWidget(widget), "text/html").body.firstElementChild)
+        })
+        // domtoimage.toBlob(document.getElementsByTagName("body")[0]).then(function (blob) {
+        //     window.saveAs(blob, 'my-node.png');
+        // })
+    })
+</script>
+</html>

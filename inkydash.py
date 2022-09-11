@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 import os
-from PIL import Image, ImageDraw, ImageFont
-from inky.auto import auto
-from requests import get
 
 IMAGE_FILENAME = "/tmp/inkydash.png"
 SCREEN_WIDTH = 600
@@ -27,55 +24,15 @@ def send_to_screen():
     inky.show()
 
 
-def draw_image(state):
-    """Create PNG image from dashboard state."""
-    # create an image
-    out = Image.new("RGB", (SCREEN_WIDTH, SCREEN_HEIGHT), (0, 0, 0))
-
-    # widget styling
-    font_big = ImageFont.truetype(FONT_FILENAME, 90)
-    height_big = 130
-    font_medium = ImageFont.truetype(FONT_FILENAME, 48)
-    height_medium = 100
-    font_small = ImageFont.truetype(FONT_FILENAME, 24)
-    height_small = 60
-
-    # get a drawing context
-    d = ImageDraw.Draw(out)
-
-    cursor = 0
-    for widget in state:
-        if widget["size"] == "large":
-            height = height_big
-            font = font_big
-        if widget["size"] == "medium":
-            height = height_medium
-            font = font_medium
-        if widget["size"] == "small":
-            height = height_small
-            font = font_small
-
-        # label
-        d.multiline_text(
-            (10, cursor), widget["label"], font=font_small, fill=(200, 200, 200)
-        )
-
-        # data
-        d.multiline_text(
-            (5, cursor + 15), widget["data"], font=font, fill=(255, 255, 255)
-        )
-        cursor = cursor + height
-
-    # save image
-    out.save(IMAGE_FILENAME, "PNG")
+def draw_image():
+    os.system(
+        f"chromium --virtual-time-budget=10000 --run-all-compositor-stages-before-draw  --headless --disable-gpu --screenshot --window-size=600,488 file://{os.getcwd()}/inkydash.html"
+    )
 
 
 def main():
-    hostname = os.getenv("INKYDASH_SERVER_LOCATION")
-    if hostname is None:
-        hostname = "inkydash:5000"
-    draw_image(get(f"http://{hostname}/data").json())
-    send_to_screen()
+    draw_image()
+    # send_to_screen()
 
 
 if __name__ == "__main__":
