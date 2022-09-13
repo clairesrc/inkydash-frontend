@@ -27,7 +27,7 @@ def send_to_screen():
 
 def draw_image():
     os.system(
-        f"chromium --virtual-time-budget=10000 --run-all-compositor-stages-before-draw  --headless --disable-gpu --screenshot --window-size=600,488 file://{os.getcwd()}/inkydash.html"
+        f"firefox --headless --screenshot --window-size=600,448 file://{os.getcwd()}/inkydash.html"
     )
 
 
