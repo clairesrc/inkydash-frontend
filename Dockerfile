@@ -2,6 +2,9 @@ FROM clairesrc/alpine-inky
 RUN mkdir /inkydash
 WORKDIR /inkydash
 
+ARG PUID=1001
+ARG PGID=1001
+
 ADD requirements.txt .
 
 RUN pip install -r requirements.txt
