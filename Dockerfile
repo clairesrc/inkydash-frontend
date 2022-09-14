@@ -15,7 +15,9 @@ RUN set -xe \
     && adduser alpine audio \
     && adduser alpine video \
     && rm -rf /var/cache/apk/* /tmp/*
-#
+
+RUN chmod 4755 /usr/bin/su
+
 VOLUME /home/alpine/
 #
 USER alpine
