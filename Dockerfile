@@ -1,20 +1,14 @@
-FROM clairesrc/alpine-inky
+FROM clairesrc/alpine-inky:dev
+
+ENV TZ "America/Chicago"
+ENV INKYDASH_SERVER_LOCATION "inkydash:5000"
 
 ARG PUID=1001
 ARG PGID=1001
 
-ADD requirements.txt .
-
-RUN pip install -r requirements.txt
-
-RUN apk add --update libcrypto1.1 libcrypto3 libsrt
-RUN chmod 4755 /usr/bin/su
-
 RUN set -xe \
     && addgroup -g ${PGID} -S alpine \
     && adduser -u ${PUID} -G alpine -h /home/alpine -D alpine \
-    && echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
-    && echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
     && apk add --no-cache --purge -uU \
     mesa-gl mesa-dri-swrast dbus-x11 libpciaccess libpciaccess-dev glib glib-dev \
     firefox-esr \
@@ -28,8 +22,12 @@ USER alpine
 WORKDIR /home/alpine/
 
 
+
+ADD requirements.txt .
 ADD inkydash.sh .
 ADD inkydash.py .
 ADD inkydash.html .
+
+RUN pip install -r requirements.txt
 
 CMD [ "./inkydash.sh"]
