@@ -27,7 +27,7 @@ def send_to_screen():
 
 def draw_image():
     os.system(
-        f"firefox-esr --headless --screenshot --window-size=600,448 file://{os.getcwd()}/inkydash.html"
+        f"firefox --headless --screenshot --window-size=600,448 file://{os.getcwd()}/inkydash.html"
     )
 
 
