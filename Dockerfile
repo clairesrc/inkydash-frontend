@@ -24,11 +24,12 @@ RUN set -xe \
 #
 VOLUME /home/alpine/
 #
-# USER alpine
+USER alpine
 WORKDIR /home/alpine/
 
 
+ADD inkydash.sh .
 ADD inkydash.py .
 ADD inkydash.html .
 
-CMD [ "python3", "inkydash.py"]
+CMD [ "./inkydash.sh"]

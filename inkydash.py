@@ -25,14 +25,7 @@ def send_to_screen():
     inky.show()
 
 
-def draw_image():
-    os.system(
-        f"su - alpine -c 'firefox --headless --screenshot --window-size=600,448 file://{os.getcwd()}/inkydash.html'"
-    )
-
-
 def main():
-    draw_image()
     send_to_screen()
 
 
