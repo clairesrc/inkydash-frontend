@@ -6,9 +6,9 @@ ADD requirements.txt .
 
 RUN pip install -r requirements.txt
 
-RUN apk add firefox 
+RUN apk add firefox pciutils-libs glib mesa-egl
 
-RUN apk add pciutils-libs
+
 
 ADD inkydash.py .
 ADD inkydash.html .
