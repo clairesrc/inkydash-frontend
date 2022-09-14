@@ -6,6 +6,8 @@ ADD requirements.txt .
 
 RUN pip install -r requirements.txt
 
+RUN apk add firefox
+
 ADD inkydash.py .
 ADD inkydash.html .
 
