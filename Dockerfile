@@ -24,7 +24,7 @@ RUN set -xe \
 #
 VOLUME /home/alpine/
 #
-USER alpine
+# USER alpine
 WORKDIR /home/alpine/
 
 
