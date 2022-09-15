@@ -2,7 +2,6 @@ FROM clairesrc/alpine-inky
 
 ENV TZ "America/Chicago"
 ENV INKYDASH_API_URL = "http://inkydash:5000/data"
-ENV INKYDASH_CLIENT_FILENAME "inkydash.html"
 RUN apk update && apk add --no-cache bash \
     alsa-lib \
     at-spi2-atk \

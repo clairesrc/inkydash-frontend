@@ -66,7 +66,8 @@ body {
 }
 </style>
 <script>
-    API_URL=Object.fromEntries(new URLSearchParams(window.location.search).entries()).api
+    const params = Object.fromEntries(new URLSearchParams(window.location.search).entries())
+    API_URL=params.api ? params.api : "http://inkydash:5000/data"
     buildModule = (inkymodule) => `
         <div class="widget widget-name-${inkymodule.name}">
             <div class="label">
