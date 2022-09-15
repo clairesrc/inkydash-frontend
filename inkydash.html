@@ -60,16 +60,19 @@ body {
 .widget-inner:nth-child(even) {
     justify-self: end;
 }
-
+.widget-content.widgets-0,
+.widget-content.widgets-1 {
+    display: block;
+}
 </style>
 <script>
-    API_URL = "http://inkydash:5000/data"
+    API_URL=Object.fromEntries(new URLSearchParams(window.location.search).entries()).api
     buildModule = (inkymodule) => `
         <div class="widget widget-name-${inkymodule.name}">
             <div class="label">
                 ${inkymodule.label}
             </div>
-            <div class="widget-content">
+            <div class="widget-content ${inkymodule.widgets ? "widgets-"+inkymodule.widgets.length : "widgets-0"}">
             ${buildWidgets(inkymodule)}
             </div>
         </div>
