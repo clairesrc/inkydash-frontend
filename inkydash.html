@@ -94,7 +94,7 @@ body {
             </div>
         </div>`
     wrap = document.getElementById("wrap")
-    fetch(`${API_URL}/data`)
+    fetch(`${API_URL}`)
     .then(response => response.json())
     .then(data => {
         data.map((inkymodule) => {
