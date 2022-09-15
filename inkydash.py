@@ -27,7 +27,7 @@ def send_to_screen(filename):
 
 
 def main():
-    filename = screenshot(f"http://${os.getenv('INKYDASH_SERVER_LOCATION')}/data")
+    filename = screenshot(f"file://${os.getenv('INKYDASH_CLIENT_FILENAME')}")
     # print(filename)
     send_to_screen(filename)
 
