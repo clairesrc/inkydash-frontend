@@ -2,13 +2,14 @@
 import os
 from inky import auto
 from PIL import Image
+from screenshotter import screenshot
 
 SCREEN_WIDTH = 600
 SCREEN_HEIGHT = 488
 FONT_FILENAME = "Pillow/Tests/fonts/NotoSansMono-Regular.ttf"
 
 
-def send_to_screen():
+def send_to_screen(filename):
     """Sends image file to Inky screen.
     Sets up Inky API, opens given filename, and draws image.
     """
@@ -17,7 +18,7 @@ def send_to_screen():
     saturation = 0.5
 
     # open source image
-    image = Image.open(os.getcwd() + "/screenshot.png")
+    image = Image.open(filename)
     resizedimage = image.resize(inky.resolution)
 
     # draw image
@@ -26,7 +27,9 @@ def send_to_screen():
 
 
 def main():
-    send_to_screen()
+    filename = screenshot(f"http://${os.getenv('INKYDASH_SERVER_LOCATION')}/data")
+    # print(filename)
+    send_to_screen(filename)
 
 
 if __name__ == "__main__":

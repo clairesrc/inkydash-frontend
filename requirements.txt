@@ -1,4 +1,5 @@
 inky
-Pillow
 python-dotenv
 requests
+Selenium-Screenshot
+selenium
