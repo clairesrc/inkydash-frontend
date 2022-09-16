@@ -39,13 +39,14 @@ def send_to_screen(filename):
 
 def main():
     load_dotenv()
-    print(
-        f"file://{os.getcwd()}/inkydash.html?api={os.getenv('INKYDASH_API_URL')}&theme={os.getenv('INKYDASH_THEME')}"
+    debug = (
+        "&debug=true" if os.getenv("DEBUG") and os.getenv("DEBUG") != "false" else ""
     )
+    theme = os.getenv("INKYDASH_THEME") if os.getenv("INKYDASH_THEME") else ""
+
     filename = screenshot(
-        f"file://{os.getcwd()}/inkydash.html?api={os.getenv('INKYDASH_API_URL')}"
+        f"file://{os.getcwd()}/inkydash.html?api={os.getenv('INKYDASH_API_URL')}&theme={theme}{debug}"
     )
-    print(filename)
     send_to_screen(filename)
     time.sleep(25)
 
