@@ -57,3 +57,7 @@ body {
 .widget-content.widgets-1 {
     display: block;
 }
+
+.widget-content img {
+    width: 1em;
+}
