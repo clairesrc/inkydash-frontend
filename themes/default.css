@@ -23,10 +23,10 @@ body {
 .widget .label {
     padding-top: 10px;
 }
-.widget:first-child {
+.widget:first-of-type {
     border-top: none;
 }
-.widget:first-child .label {
+.widget:first-of-type .label {
     padding-top: 0;
 }
 .widget-size-small .data {
