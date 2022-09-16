@@ -4,6 +4,7 @@ import time
 from inky import auto
 from PIL import Image
 from screenshotter import screenshot
+from dotenv import load_dotenv
 
 SCREEN_WIDTH = 600
 SCREEN_HEIGHT = 488
@@ -28,9 +29,12 @@ def send_to_screen(filename):
 
 
 def main():
+    load_dotenv()
+    print(f"file://{os.getcwd()}/inkydash.html?api={os.getenv('INKYDASH_API_URL')}")
     filename = screenshot(
         f"file://{os.getcwd()}/inkydash.html?api={os.getenv('INKYDASH_API_URL')}"
     )
+    print(filename)
     send_to_screen(filename)
     time.sleep(25)
 
