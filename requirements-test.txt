@@ -2,3 +2,4 @@ python-dotenv
 requests
 Selenium-Screenshot
 selenium
+git+https://www.github.com/hbldh/hitherdither
