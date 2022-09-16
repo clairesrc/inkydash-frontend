@@ -30,7 +30,8 @@ RUN apk update && apk add --no-cache bash \
     xvfb \
     zlib-dev \
     chromium \
-    chromium-chromedriver
+    chromium-chromedriver \
+    git
 
 ADD requirements.txt .
 ADD inkydash.py .
