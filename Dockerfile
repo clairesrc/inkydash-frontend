@@ -33,12 +33,14 @@ RUN apk update && apk add --no-cache bash \
     chromium-chromedriver \
     git
 
+RUN mkdir themes
+
 ADD requirements.txt .
 ADD inkydash.py .
 ADD screenshotter.py .
 ADD inkydash.html .
 ADD inkydash.js .
-ADD themes .
+ADD themes/* themes
 
 RUN pip install -r requirements.txt
 
