@@ -21,7 +21,7 @@ def screenshot(url):
     driver = webdriver.Chrome(options=chrome_options, desired_capabilities=d)
     driver.get(url)
 
-    time.sleep(30)
+    time.sleep(5)
     img_url = ob.full_Screenshot(driver, save_path=r".", image_name="screenshot.png")
     driver.close()
     driver.quit()

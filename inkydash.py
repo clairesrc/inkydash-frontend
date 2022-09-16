@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os
+import time
 from inky import auto
 from PIL import Image
 from screenshotter import screenshot
@@ -29,6 +30,7 @@ def send_to_screen(filename):
 def main():
     filename = screenshot(f"file:///inkydash.html?api={os.getenv('INKYDASH_API_URL')}")
     send_to_screen(filename)
+    time.sleep(25)
 
 
 if __name__ == "__main__":
