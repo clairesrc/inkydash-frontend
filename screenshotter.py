@@ -13,7 +13,7 @@ def screenshot(url):
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-setuid-sandbox")
-    chrome_options.add_argument("--window-size=600,488")
+    chrome_options.add_argument("--window-size=600,448")
 
     d = DesiredCapabilities.CHROME
     d["loggingPrefs"] = {"browser": "ALL"}

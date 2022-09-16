@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 import hitherdither
 
 SCREEN_WIDTH = 600
-SCREEN_HEIGHT = 488
+SCREEN_HEIGHT = 448
 FONT_FILENAME = "Pillow/Tests/fonts/NotoSansMono-Regular.ttf"
 
 
