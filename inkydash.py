@@ -28,7 +28,9 @@ def send_to_screen(filename):
 
 
 def main():
-    filename = screenshot(f"file:///inkydash.html?api={os.getenv('INKYDASH_API_URL')}")
+    filename = screenshot(
+        f"file://{os.getcwd()}/inkydash.html?api={os.getenv('INKYDASH_API_URL')}"
+    )
     send_to_screen(filename)
     time.sleep(25)
 
