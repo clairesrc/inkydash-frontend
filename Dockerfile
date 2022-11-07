@@ -12,6 +12,7 @@ RUN apk update && apk add --no-cache bash \
     cups-libs \
     dbus-libs \
     eudev-libs \
+    py3-pip \
     expat \
     flac \
     gdk-pixbuf \
