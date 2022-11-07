@@ -44,6 +44,6 @@ ADD inkydash.html .
 ADD inkydash.js .
 ADD themes/* themes
 
-RUN pip install -r requirements.txt
+RUN /usr/bin/pip3 install -r requirements.txt
 
 CMD [ "python", "./inkydash.py"]
